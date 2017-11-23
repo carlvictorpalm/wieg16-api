@@ -4,7 +4,7 @@ require "db.php";
 $sql = "SELECT * FROM user";
 $statement = $pdo->query($sql);
 $statement->execute();
-$customers =$statement->fetchAll();
+$customers = $statement->fetchAll();
 foreach ($customers as $key => $customer) {
     $sql = "SELECT * FROM address WHERE customer_id = ".$customer['id'];
     $query = $pdo->query($sql);

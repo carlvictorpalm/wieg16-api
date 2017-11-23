@@ -6,11 +6,11 @@ $id = $_GET['customer_id'];
 $sql_address = "SELECT postcode, street, city FROM address WHERE customer_id = ".$id;
 $statement = $pdo->query($sql_address);
 $statement->execute();
-$customers =$statement->fetch();
+$address =$statement->fetch();
 
 header("Content-Type: application/json");
-if ($customers != null){
-    echo json_encode($customers);
+if ($address != null){
+    echo json_encode($address);
 }
 else {
     header("HTTP/1.0 404 not found");
