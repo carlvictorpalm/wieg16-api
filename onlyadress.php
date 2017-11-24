@@ -13,6 +13,6 @@ if ($address != null){
     echo json_encode($address);
 }
 else {
-    header("HTTP/1.0 404 not found");
+    header("HTTP/1.0 404 not found", true, 404);
     echo json_encode(["message" => "Customer not found"]);
 }

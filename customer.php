@@ -1,9 +1,9 @@
 <?php
-require "db.php";
+require 'db.php';
 
-$id = $_GET['company_id'];
+$id = $_GET['id'];
 
-$sql = 'SELECT * FROM user WHERE company_id = "' . $id . '"';
+$sql = 'SELECT * FROM user WHERE id = "' . $id .'"';
 $user = $pdo->query($sql);
 $user->execute();
 $customer = $user->fetchAll();
@@ -18,10 +18,10 @@ foreach ($customer as $key => $value) {
     }
 }
 
-if (!empty($customer)) {
+if (!empty($customer)){
     header("content-type: application/json");
     echo json_encode($customer);
-} else {
+}else{
     header("HTTP/1.0 404 Not Found");
     echo json_encode(["message" => "Customer not found"]);
 }
